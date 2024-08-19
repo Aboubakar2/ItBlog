@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}ItBlog</title>
+
+    <link rel="stylesheet" href="{% if debug %}{% static 'css/style.css' %}{% else %}{% static 'css/style.min.css' %}{% endif %}">
+
+    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+    <script src="https://unpkg.com/hyperscript.org@0.9.12"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+    <link rel="shortcut icon" type="image/png"  href="{% static 'images/log.svg' %}"/>
+
+
+    <!-- Zain Google font links     -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zain:wght@200;300;400;700;800;900&display=swap" rel="stylesheet">
+
+</head>
+<body class="bg-gray-100 overflow-auto">
+
+
+<!--inlude a messages section-->
+{% include 'includes/messages.html' %}
+
+<!--inlude a header section-->
+{% include 'includes/header.html' %}
+
+
+
+<!--Block that going to wrap the content of site -->
+{% block layout %}
+
+{% endblock %}
+
+
+</body>
+</html>

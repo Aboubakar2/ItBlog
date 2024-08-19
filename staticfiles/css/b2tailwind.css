@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+--primary: rgb(88, 40, 244);
+--primary-hover: rgb(69, 29, 200);
+--secondary: rgb(20, 1, 255);
+--secondary-hover: rgb(16, 1, 197);
+--font2: 'Zain', sans-serif;
+
+}
+
+.font2 {
+font-family: var(--font2);
+}
+
+form{
+@apply space-y-6
+}
+form p {
+display: flex;
+flex-direction: column;
+margin-bottom: 1.5rem;
+}
+form p label {
+@apply block text-lg font-medium leading-6 mb-2
+}
+form p input {
+@apply block w-full rounded-md border-0 py-2 px-2  text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6
+}
+form p:nth-of-type(4){
+display: none;
+}
+form button {
+@apply flex w-full justify-center rounded-md bg-[--secondary] px-3 py-2 text-lg
+    font-semibold text-white shadow-sm hover:bg-[--secondary-hover]
+    focus:outline-none focus:ring focus:ring-blue-500
+}
+form .helptext, ul, label[for="id_password2"]{
+@apply hidden
+}
+form  input[name="email"]{
+placeholder:'email@..';
+}
+

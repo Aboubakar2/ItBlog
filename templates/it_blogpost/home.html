@@ -1,0 +1,19 @@
+{% extends 'layouts/e.html' %}
+{% load static %}
+{% block content %}
+
+  <hero style="background-image: url('{% static 'images/home_bg.png' %}')" class="h-screen items-center  grid bg-gray-700 text-white text-center bg-cover z-10 relative">
+    <div class="col-start-1 row-start-1 bg-gray-800 bg-opacity-40 w-full h-full"></div>
+    <div class="col-start-1 row-start-1 py-24 px-10 ">
+        <div class="">
+        <h1 class="font2 text-7xl title-fadein">All the Tech knowledge <br> you need right, in <img class="inline h-12" src="{% static 'images/logo.svg' %}"> </h1>
+        </div>
+
+        <a href="{% url 'blogposts' %}">
+            <button class="button btn-special !px-8 py-2 " >Explore</button>
+        </a>
+
+    </div>
+</hero>
+
+{% endblock %}

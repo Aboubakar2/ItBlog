@@ -1,0 +1,53 @@
+{% extends 'layouts/b.html' %}
+
+{% block title %}Edit Post |{% endblock %}
+
+{% block content %}
+    <h1>Edit Post</h1>
+    <div class="card p-4">
+        <div class="flex items-center justify-between px-4 py-2 border-b border-gray-200">
+            <h3 id="title" class="text-lg font-semibold truncate">{{ post.title }}</h3>
+        </div>
+         <figure class="mb-4 ">
+            <img  id="thumbnail" class="w-full object-cover max-h-60" src="{{ post.thumbnail.url }}" alt="{{ post.title }}">
+        </figure>
+
+        <div class="pb-2">
+            <form method='POST'>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="flex flex-row-reverse pt-4 ">
+                    <button  type="submit">Submit</button>
+                    <a class="btn-secondary mr-4" href="{{ request.META.HTTP_REFERER }}">Go Back</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+
+        // This updates the thumbnail
+        const fileInput = document.querySelector('input[type="file"]');
+
+        fileInput.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        const image = document.querySelector('#thumbnail');
+
+        if (file && file.type.includes('image')) {
+            const url = URL.createObjectURL(file);
+            image.src = url;
+        }
+        });
+
+        // This updates the Title
+        const display_nameInput = document.getElementById('id_title');
+        const display_nameOutput = document.getElementById('title');
+
+        display_nameInput.addEventListener('input', (event) => {
+            display_nameOutput.innerText = event.target.value;
+        });
+
+    </script>
+
+{% endblock %}

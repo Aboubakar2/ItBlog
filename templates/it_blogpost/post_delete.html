@@ -1,0 +1,26 @@
+{% extends 'layouts/b.html' %}
+
+{% block title %}Delete Post |{% endblock %}
+
+{% block  content %}
+    <div class="md:flex items-center">
+    <div class="w-full md:max-w-sm mr-6 md:[&>*>*>p]:text-4xl">
+
+       {% include 'it_blogpost/post.html' %}
+
+    </div>
+    <div>
+        <h1>Delete Post</h1>
+        <p class="mb-6">Are you sure you want to delete this post?</p>
+
+        <form method='POST'>
+            {% csrf_token %}
+            <div class="flex flex-row-reverse pt-4 ">
+                <button class="btn-red" type="submit">Submit</button>
+                <a class="btn-secondary  mr-4" href="{{ request.META.HTTP_REFERER }}">Go Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

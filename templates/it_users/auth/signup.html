@@ -1,0 +1,15 @@
+{% extends 'layouts/g.html' %}
+
+{% block content %}
+    <h2 class="mt-6 text-center text-3xl font-bold leading-9 tracking-tight text-white">Inscris-toi</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" >S’inscrire</button>
+        <input type="hidden" name="{{ redirect_field_name }}" value="{% url 'profile-onboarding' %}">
+    </form>
+    <p class="text-center text-lg text-white">
+        Tu as déja un Compte?
+        <a href="{% url 'login' %}" class="font-semibold  text-[--secondary] hover:text-white">Connecte-toi</a>
+    </p>
+{% endblock content %}

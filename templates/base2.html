@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="h-full ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}ItBlog</title>
+
+    <link rel="shortcut icon" type="image/png"  href="{% static 'images/log.svg' %}"/>
+    <!--Zain font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zain:wght@200;300;400;700;800;900&display=swap" rel="stylesheet">
+
+    <!--    link to the stylesheet-->
+    <link rel="stylesheet" href="{% if debug %}{% static 'css/b2style.css' %}{% else %}{% static 'css/b2style.min.css' %}{% endif %}">
+
+
+</head>
+<body  class=" font2 bg-cover bg-center bg-opacity-50 "  style="background-image: url('{% static 'images/auth_bg.png' %}')" >
+
+    <div class="  bg-neutral-900 sm:px-0 flex items-stretch h-screen !bg-opacity-50" id="background-image-500">
+        <div class="flex w-full">
+
+            <div class="w-full  flex items-center  justify-center text-white px-4 overflow-hidden ">
+                <div class="card-transparent backdrop-blur-sm   shadow-2xl rounded-lg mx-auto space-y-2 max-w-lg w-full px-8 py-12 lg:px-20 lg:py-24">
+                    <a href="{% url 'home' %}">
+                        <img class="mx-auto h-12 w-auto" src="{% static 'images/logo.svg' %}" alt="ItBlog logo"/>
+                    </a>
+                    {% block content %}
+
+                    {% endblock %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+{% extends 'layouts/g.html' %}
+{% block title %}Password Reset Confirm | {% endblock %}
+{% block content %}
+    <p class="my-6">Reset Your Password </p>
+
+    <form method='POST'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}

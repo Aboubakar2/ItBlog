@@ -1,0 +1,6 @@
+{% extends 'layouts/g.html' %}
+{% block title %}Password Reset Complete | {% endblock %}
+{% block content %}
+   <p class="text-xl font2">Your password has been set. <br>
+      You can now <a href="{% url 'login' %}" class="text-bold text-blue-500 hover:underline ">log in</a> with the new password.</p>
+{% endblock %}

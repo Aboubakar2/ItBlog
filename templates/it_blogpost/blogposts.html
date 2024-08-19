@@ -1,0 +1,19 @@
+{% extends 'layouts/f.html' %}
+
+
+{% block content %}
+
+{% for post in posts  %}
+    {% include 'it_blogpost/post.html' %}
+{% endfor %}
+
+<div hx-get="{% if tag %}{% url 'category' tag.slug %}{% else %}
+            {% url 'blogposts' %}{% endif %}?page={{ page|add:1 }}"
+    hx-trigger="revealed"
+    hx-target="this"
+    hx-swap="outerHTML">
+    loading...
+</div>
+
+
+{% endblock %}

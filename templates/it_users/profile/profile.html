@@ -1,0 +1,54 @@
+{% extends 'layouts/d.html' %}
+
+{% block content %}
+    <div id="profile" class="flex flex-col items-center">
+    <div class="w-full md:w-[24rem] lg:w-[50rem]">
+        <div class="card p-6">
+            <div class="text-center flex flex-col items-center">
+                <img class="w-36 h-36 rounded-full object-cover mb-4" src="{{ profile.avatar }}" />
+                <div class="text-center max-w-md">
+                    <h1>{{ profile.name }}</h1>
+                    <div class="text-gray-400 mb-2 -mt-3">@{{ profile.user.username }}</div>
+
+                    <div class="my-8">
+                        {% if profile.bio %}
+                            <p class="text-2xl">{{ profile.bio }}</p>
+                        {% else %}
+                           Professional Procastinator
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <div id="tabs" hx-target="#tab-contents" hx-swap="innerHTML" class="flex justify-center my-4 gap-2"
+        _="on htmx: afterOnLoad take .selected for event.target">
+        <a hx-get="{% url 'userprofile' profile.user.username %}" class="tab selected">Latest</a>
+        <a hx-get="{% url 'userprofile' profile.user.username %}?top-posts" class="tab">Top Posts</a>
+        <a hx-get="{% url 'userprofile' profile.user.username %}?top-comments" class="tab">Top Comments</a>
+        <a hx-get="{% url 'userprofile' profile.user.username %}?liked-posts" class="tab">Liked Posts</a>
+    </div>
+
+    <div id="tab-contents" class="w-full flex flex-col items-center">
+
+        <div  class="grid place-items-start gap-8 mx-auto max-w-xl
+        {% if posts.count <= 1 %}
+        {% elif post.count == 2%}max-w-xl lg:grid-cols-2 lg:max-w-5xl
+        {% else %}lg:grid-cols-2 lg:max-w-5xl xl:grid-cols-3 xl:max-w-7xl {% endif %}">
+
+        {% if posts %}
+            {% for post in posts %}
+                {% include 'it_blogpost/post.html' %}
+            {% endfor %}
+        {% else %}
+           <div class="w-full text-center mt-10"> No posts just yet</div>
+        {% endif %}
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'layouts/g.html' %}
+
+{% block title %}Logout | {% endblock %}
+{% block content %}
+
+    <h2 class="mt-10 text-center text-3xl font-bold leading-9 tracking-tight text-white">Est tu sur de vouloir te deconnecter </h2>
+    <form method="post">
+        {% csrf_token %}
+      <div class="flex flex-row-reverse pt-4 gap-2">
+          <button class="bg-red-500 hover:bg-red-700" type="submit">Oui</button>
+          <button class="" type="submit">Non</button>
+      </div>
+    </form>
+
+{% endblock content %}

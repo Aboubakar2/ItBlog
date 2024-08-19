@@ -1,0 +1,226 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+[x-cloak] {
+    display: none !important;
+}
+:root {
+    --primary: rgb(1, 195, 142);
+    --secondary: rgb(16, 1, 197);
+    --bblack: rgb(4, 19, 78);
+    --black: #101722;
+    --font2: 'Zain', sans-serif;
+
+}
+
+h1 {
+    @apply text-4xl font-bold mb-4
+}
+h2 {
+    @apply text-2xl font-bold mb-3
+}
+h3 {
+    @apply text-lg font-bold
+}
+
+.font2 {
+    font-family: var(--font2);
+}
+
+.button, button, [type='submit'], [type='button'] {
+    @apply font2 text-xl   bg-white px-4 py-2 text-black font-bold  mt-4 ring-offset-1 ring-2 ring-[--primary] rounded-lg
+}
+
+.button:hover, button:hover, [type='submit']:hover, [type='button']:hover {
+    background-color: var(--primary);
+    color: white;
+}
+.button:active, .btn-secondary button:active, [type='submit']:active, [type='button']:active {
+    transform: scale(0.95);
+}
+.btn-secondary {
+   @apply font2 text-xl  py-2 bg-white text-black font-bold px-4 mt-4 ring-offset-1 ring-2 ring-[--secondary] rounded-lg
+}
+.btn-secondary:hover, .button.btn-secondary :hover {
+   @apply hover:bg-[--secondary] text-white
+}
+.btn-special {
+    @apply bg-gradient-to-r from-[#1001c5] to-[#01c38e] transition transform duration-300
+}
+.btn-special:hover {
+    @apply bg-gradient-to-r from-[#01c38e] to-[#1001c5] -translate-y-1 scale-110 ring-white
+}
+.btn-red {
+    @apply ring-red-500
+
+}
+.btn-red:hover {
+    @apply hover:bg-red-500 text-white
+}
+
+.navitems>li>a {
+    @apply flex items-center gap-2 h-12 px-4 hover:bg-gray-700 rounded-lg;
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    background-color: white;
+    padding-bottom: 1rem;
+    width: 100%;
+}
+.hoverlist>* {
+    @apply hover:bg-gray-100 rounded-md transition duration-150;
+}
+.hoverlist>*>a {
+    @apply flex items-center p-2;
+}
+.highlight {
+    @apply !bg-indigo-100;
+}
+.titleBlip {
+    animation: 1s fadeIn;
+}
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    10% { opacity: 0; }
+    100% { opacity: 1; }
+}
+html, body {
+    margin: 0;
+    min-height: 100%;
+    font-family: var(--font2);
+
+}
+p {
+    margin-bottom: 1rem;
+}
+form p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+label, input {
+  display: inline-block;
+}
+form p label {
+    width: 7rem;
+    }
+label {
+    margin: 6px 0 3px;
+}
+input, textarea {
+    width: 100%;
+}
+input[type="file"], select {
+    background-color: white;
+    padding-left: 0;
+}
+label[for="id_remember"] {
+    width: auto;
+    margin-right: 0.5rem;
+}
+input[name="remember"] {
+    width: auto;
+}
+
+.login .secondaryAction {
+    box-shadow: none;
+    display: block;
+    padding: 0px;
+    border: none;
+    font-size: smaller;
+    font-weight: normal;
+    min-height: auto;
+    margin-bottom: 1.5rem;
+}
+.login .secondaryAction:hover {
+    @apply text-gray-500 underline bg-white;
+}
+#id_tags {
+    margin-bottom: 1rem;
+}
+#id_tags div {
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+#id_tags div label {
+    border-radius: 9999px;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgb(229 231 235);
+    width: auto;
+    cursor: pointer;
+    user-select: none;
+}
+#id_tags input {
+    display: none;
+}
+#id_tags label:has(input:checked) {
+    background-color: var(--black);
+    color: white;
+    border: 1px solid var(--black);
+}
+.textarea, textarea {
+    margin-bottom: 1rem;
+}
+.textarea, textarea, input {
+    border-radius: 0.5rem;
+    padding: 1rem 1.2rem;
+    background-color: rgba(232, 240, 254, 1);
+}
+.errorlist li {
+    color: rgb(253, 88, 49);
+    padding: 0.5rem;
+    padding-left: 1rem;
+    border-left: 5px solid rgb(253, 88, 49);
+    margin-bottom: 1rem;
+}
+.tab {
+    cursor: pointer;
+    padding: 0.75rem 1rem;
+    color: rgb(0,0,0,0.6);
+    background-color: rgb(0,0,0,0.05);
+    border-radius: 0.75rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+.tab:hover {
+    background-color: rgb(0,0,0,0.1);
+}
+.tab.selected {
+    color: white;
+    background-color: var(--black);
+}
+.replyform {
+    border-top: none;
+}
+.replyform textarea, .replyform input {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    margin-bottom: 0px;
+    height: 3.2rem;
+}
+.replyform button {
+    margin-left: 0.5rem;
+    min-height: unset;
+}
+.fade-me-in.htmx-settling{
+    opacity: 0;
+}
+.fade-me-in {
+    opacity: 1;
+    transition: opacity 1s ease-out;
+}
+#profile article figure img {
+    @apply aspect-[3/2] object-cover;
+}
+#profile article p {
+    @apply truncate leading-normal;
+}
