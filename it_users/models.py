@@ -2,7 +2,7 @@ from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.templatetags.static import static
-
+from django_resized import ResizedImageField
 
 """Here I'm creating my own User Model inherit from AbstractUser to be able to scale
  up my user model as the project  grow up or as needed"""
@@ -14,7 +14,7 @@ class User(AbstractUser):
 
 # this is the profile Model
 class Profile(models.Model):
-    image = models.ImageField(null=True, blank=True, upload_to='avatars/')
+    image = ResizedImageField(size=[600, 600], quality=85, null=True, blank=True, upload_to='avatars/')
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     realname = models.CharField(unique=True, max_length=20, null=True, blank=True)
     email = models.EmailField(unique=True, null=True, )
