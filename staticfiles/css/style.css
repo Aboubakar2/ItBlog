@@ -1421,11 +1421,6 @@ video {
   line-height: 1.75rem;
 }
 
-.\!text-3xl {
-  font-size: 1.875rem !important;
-  line-height: 2.25rem !important;
-}
-
 .font-bold {
   font-weight: 700;
 }
@@ -2067,11 +2062,6 @@ input[name="remember"] {
 
   .md\:gap-0 {
     gap: 0px;
-  }
-
-  .md\:\!text-3xl {
-    font-size: 1.875rem !important;
-    line-height: 2.25rem !important;
   }
 }
 

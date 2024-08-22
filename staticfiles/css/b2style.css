@@ -1421,16 +1421,6 @@ video {
   line-height: 1.75rem;
 }
 
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-
-.\!text-3xl {
-  font-size: 1.875rem !important;
-  line-height: 2.25rem !important;
-}
-
 .font-bold {
   font-weight: 700;
 }
@@ -1815,11 +1805,6 @@ form  input[name="email"]{
 
   .md\:gap-0 {
     gap: 0px;
-  }
-
-  .md\:\!text-3xl {
-    font-size: 1.875rem !important;
-    line-height: 2.25rem !important;
   }
 }
 
