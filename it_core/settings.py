@@ -140,7 +140,8 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-MEDIA_URL = 'mediafiles/'
+# Media files
+MEDIA_URL = 'media/'
 
 if ENVIRONMENT == 'production':
     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
@@ -153,7 +154,6 @@ else:
     MEDIA_ROOT = BASE_DIR / 'mediafiles'
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -164,7 +164,6 @@ AUTH_USER_MODEL = "it_users.User"
 LOGIN_REDIRECT_URL = 'home'
 
 # Email configurations
-# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
