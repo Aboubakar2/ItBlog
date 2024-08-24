@@ -3,6 +3,8 @@
 {% block title %}Login | {% endblock %}
 {% block content %}
 
+
+
     <h2 class="mt-10 text-center text-3xl font-bold leading-9 tracking-tight text-white">Connecte-toi à ton compte</h2>
     <form method="post">
         {{ form.as_p }}
@@ -15,4 +17,4 @@
         Pas encore de Compte ?
         <a href="{% url 'signup' %}?next={% url 'profile-onboarding' %}" class="font-semibold  text-[--secondary] hover:text-white"> Inscris-toi</a>
     </p>
-{% endblock content %}
+{% endblock  %}

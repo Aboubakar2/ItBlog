@@ -37,10 +37,21 @@ form button {
     font-semibold text-white shadow-sm hover:bg-[--secondary-hover]
     focus:outline-none focus:ring focus:ring-blue-500
 }
-form .helptext, ul, label[for="id_password2"]{
+form  label[for="id_password2"]{
 @apply hidden
 }
-form  input[name="email"]{
-placeholder:'email@..';
+
+form p span[id="id_password2_helptext"] {
+    @apply hidden
 }
 
+form ul {
+    @apply hidden
+}
+
+.errorlist{
+    @apply block
+}
+.errorlist li{
+    @apply text-red-500
+}

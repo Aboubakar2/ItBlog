@@ -1670,12 +1670,25 @@ form button:focus {
   --tw-ring-color: rgb(59 130 246 / var(--tw-ring-opacity));
 }
 
-form .helptext, ul, label[for="id_password2"] {
+form  label[for="id_password2"] {
   display: none;
 }
 
-form  input[name="email"]{
-  placeholder:'email@..';
+form p span[id="id_password2_helptext"] {
+  display: none;
+}
+
+form ul {
+  display: none;
+}
+
+.errorlist {
+  display: block;
+}
+
+.errorlist li {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 
 .hover\:scale-95:hover {
@@ -1879,4 +1892,3 @@ form  input[name="email"]{
 .\[\&\>li\>a\]\:justify-end>li>a {
   justify-content: flex-end;
 }
-

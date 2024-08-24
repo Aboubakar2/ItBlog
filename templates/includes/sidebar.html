@@ -17,31 +17,32 @@ x-transition:enter-end="opacity-100 mt-0">
         {% endfor %}
     </section>
 
-    <section class="card p-4">
-        <div class="flex items-center">
-            <img class="w-7 mr-2 -mt-3" src="{% static 'images/fireheart_black.svg' %}"/>
-            <h2>Top Posts</h2>
-        </div>
-        <ul class="hoverlist">
-            {% for post in top_posts %}
-            <li>
-                <a href="{% url 'post-detail' post.slug %}" class="flex items-stretch justify-between">
-                    <div class="flex items-center truncate">
-                        <img class="w-10 h-10 rounded-lg object-cover mr-3 shrink-0" src="{{ post.thumbnail.url }}" alt="blogpost thumbnail">
-                        {% if post.author %}
-                            <img class="w-6 h-6 rounded-full object-cover mr-1" src="{{ post.author.profile.avatar }}">
-                            <span class="font-bold text-sm mr-3">{{ post.author.username }}</span>
-                        {% else %}
-                            <img class="w-6 h-6 rounded-full object-cover mr-1" src="{% static 'images/avatar_default.svg' %}">
-                            <span class="font-bold text-sm mr-1">no author</span>
-                        {% endif %}
-                    </div>
-                    <span class="{% if user in post.likes.all %} font-bold {% else %} font-light {% endif %} text-sm  text-grey-500 shrink-0">{{ post.likes.count }} Like{{ post.likes.count|pluralize:'s' }} / {{ post.comments.count }}</span>
-                </a>
-            </li>
-            {% endfor %}
-        </ul>
-    </section>
-
+    {% if top_posts  %}
+        <section class="card p-4">
+            <div class="flex items-center">
+                <img class="w-7 mr-2 -mt-3" src="{% static 'images/fireheart_black.svg' %}"/>
+                <h2>Top Posts</h2>
+            </div>
+            <ul class="hoverlist">
+                {% for post in top_posts %}
+                <li>
+                    <a href="{% url 'post-detail' post.slug %}" class="flex items-stretch justify-between">
+                        <div class="flex items-center truncate">
+                            <img class="w-10 h-10 rounded-lg object-cover mr-3 shrink-0" src="{{ post.thumbnail.url }}" alt="blogpost thumbnail">
+                            {% if post.author %}
+                                <img class="w-6 h-6 rounded-full object-cover mr-1" src="{{ post.author.profile.avatar }}">
+                                <span class="font-bold text-sm mr-3">{{ post.author.username }}</span>
+                            {% else %}
+                                <img class="w-6 h-6 rounded-full object-cover mr-1" src="{% static 'images/avatar_default.svg' %}">
+                                <span class="font-bold text-sm mr-1">no author</span>
+                            {% endif %}
+                        </div>
+                        <span class="{% if user in post.likes.all %} font-bold {% else %} font-light {% endif %} text-sm  text-grey-500 shrink-0">{{ post.likes.count }} Like{{ post.likes.count|pluralize:'s' }} / {{ post.comments.count }}</span>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+    {% endif %}
 
 </aside>

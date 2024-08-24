@@ -18,6 +18,10 @@ class SignUpForm(UserCreationForm):
             'password': forms.PasswordInput(attrs={'class': 'font2 ', 'autocomplete': 'password'}),
             'password2': forms.PasswordInput(attrs={'class': 'font2  m-0', 'autocomplete': 'password'}),
         }
+        help_texts = {
+            'username': None,
+            'email': None,
+        }
 
 
 class ProfileForm(forms.ModelForm):
