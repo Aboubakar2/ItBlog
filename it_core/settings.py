@@ -142,16 +142,19 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Media files
 MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'mediafiles'
 
-if ENVIRONMENT == 'production':
-    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-    CLOUDINARY_STORAGE = {
-        'CLOUD_NAME': env('CLOUD_NAME'),
-        'API_KEY': env('CLOUD_API_KEY'),
-        'API_SECRET': env('CLOUD_API_SECRET')
-    }
-else:
-    MEDIA_ROOT = BASE_DIR / 'mediafiles'
+
+
+# if ENVIRONMENT == 'production':
+#     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+#     CLOUDINARY_STORAGE = {
+#         'CLOUD_NAME': env('CLOUD_NAME'),
+#         'API_KEY': env('CLOUD_API_KEY'),
+#         'API_SECRET': env('CLOUD_API_SECRET')
+#     }
+# else:
+
 
 # Default primary key field type
 
