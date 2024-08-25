@@ -42,16 +42,16 @@ form  label[for="id_password2"]{
 }
 
 form p span[id="id_password2_helptext"] {
-    @apply hidden
+    @apply hidden;
 }
 
 form ul {
-    @apply  hidden
+    @apply  hidden;
 }
 
 .errorlist{
-    @apply block
+    @apply block;
 }
 .errorlist li{
-    @apply text-red-500
+    @apply text-red-500;
 }
