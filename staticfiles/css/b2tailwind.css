@@ -46,7 +46,7 @@ form p span[id="id_password2_helptext"] {
 }
 
 form ul {
-    @apply hidden
+    @apply  hidden
 }
 
 .errorlist{
