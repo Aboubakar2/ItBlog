@@ -5,10 +5,18 @@
         <h3 class="text-lg font-semibold truncate">{{ post.title }}</h3>
     </div>
     <figure>
-        <a href="{% url 'post-detail' post.slug %}">
-            <img class="w-full h-60 object-cover " src="{{ post.thumbnail.url }}" alt="{{ post.title }}">
-        </a>
-    </figure>
+    <a href="{% url 'post-detail' post.slug %}">
+        {% if post.thumbnail %}
+            <img class="w-full h-60 object-cover"
+                 src="{{ post.thumbnail.url }}"
+                 alt="{{ post.title }}">
+        {% else %}
+            <img class="w-full h-60 object-cover"
+                 src="{% static 'images/default-blog.png' %}"
+                 alt="{{ post.title }}">
+        {% endif %}
+    </a>
+</figure>
     <div class="p-4 flex flex-col justify-between h-full">
         {% if post.author %}
             <a class="flex   items-center gap-2 mb-4" href="">
