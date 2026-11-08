@@ -7,9 +7,18 @@ x-transition:enter-end="opacity-100 mt-0">
         <h2>Categories</h2>
         {% for category in categories %}
             <ul class="hoverlist">
-                <li class="{% if category.slug == tag.slug %}highlight{% endif %}">
+                <li class="{% if tag and category.slug == tag.slug %}highlight{% endif %}">
                     <a href="{% url 'category' category.slug %}">
-                        <img class="w-8 h-8 object-cover mr-2" src="{{ category.image.url }}">
+                        {% if category.image %}
+                            <img class="w-8 h-8 object-cover mr-2"
+                                src="{{ category.image.url }}"
+                                alt="{{ category.name }}">
+                        {% else %}
+                            <img class="w-8 h-8 object-cover mr-2"
+                                src="{% static 'images/default_tag.png' %}"
+                                alt="{{ category.name }}">
+                        {% endif %}
+
                         <span class="font-bold text-sm">{{ category.name }}</span>
                     </a>
                 </li>
